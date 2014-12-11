@@ -41,6 +41,7 @@ class Account {
 
     lazy var bookmarks: BookmarksModel = {
         // Stubbed out to populate data from server.
+        // Eventually this will be a SyncingBookmarksModel or an OfflineBookmarksModel, perhaps.
         return BookmarksREST(account: self)
     } ()
 
