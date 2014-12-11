@@ -39,7 +39,8 @@ class Account {
         logoutCallback(account: self)
     }
 
-    lazy var bookmarks: BookmarksREST = {
+    lazy var bookmarks: BookmarksModel = {
+        // Stubbed out to populate data from server.
         return BookmarksREST(account: self)
     } ()
 
