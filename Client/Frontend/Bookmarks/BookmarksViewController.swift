@@ -101,11 +101,19 @@ class BookmarksViewController: UITableViewController {
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
         let bookmark = account.bookmarks.root.get(indexPath.row)
 
-        if let item = bookmark as BookmarkItem? {
+        switch (bookmark) {
+        case let item as BookmarkItem:
             // Click it.
             UIApplication.sharedApplication().openURL(NSURL(string: item.url)!)
-        } else if let folder = bookmark as BookmarkFolder? {
+            break;
+
+        case let folder as BookmarkFolder:
             // Descend into the folder.
+            break;
+
+        default:
+            // Weird.
+            break;        // Just here until there's another executable statement (compiler requires one).
         }
     }
 }
